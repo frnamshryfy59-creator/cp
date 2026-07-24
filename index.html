@@ -1,56 +1,414 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>روستای چای‌باغ - صفحه اصلی</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>روستای چای‌باغ | معرفی و گردشگری</title>
+
+    <!-- Font Awesome (icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Google Font (Vazir for Persian) -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
 </head>
 <body>
-    <header>
-        <div class="container">
+
+    <!-- ==================== STICKY HEADER ==================== -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-inner">
+            <!-- Logo -->
             <div class="logo">
-                <h1>روستای چای‌باغ</h1>
+                <a href="#home">
+                    <span class="logo-icon">🌿</span>
+                    <span class="logo-text">چای‌باغ</span>
+                </a>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">صفحه اصلی</a></li>
-                    <li><a href="گردشگری.html">گردشگری</a></li>
-                    <li><a href="زیرساخت.html">زیرساخت</a></li>
-                    <li><a href="بهداری.html">بهداری</a></li>
-                    <li><a href="اوقاف.html">اوقاف</a></li>
-                    <li><a href="محصول-محلی.html">محصول محلی</a></li>
-                    <li><a href="گالری.html">گالری تصاویر</a></li>
-                    <li><a href="شورا.html">شورای محل</a></li>
-                    <li><a href="شهدا.html">شهدا</a></li>
+
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-list">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">خانه</a>
+                    </li>
+
+                    <!-- About – Mega Dropdown -->
+                    <li class="nav-item mega-trigger" data-mega="about">
+                        <a href="#about" class="nav-link">
+                            درباره روستا
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="mega-panel" id="mega-about">
+                            <div class="mega-grid">
+                                <div class="mega-col">
+                                    <h4>معرفی</h4>
+                                    <ul>
+                                        <li><a href="#intro">معرفی روستا</a></li>
+                                        <li><a href="#history">تاریخچه</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col">
+                                    <h4>جغرافیا &amp; فرهنگ</h4>
+                                    <ul>
+                                        <li><a href="#geography">موقعیت جغرافیایی</a></li>
+                                        <li><a href="#culture">فرهنگ و مردم</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-card">
+                                    <img src="https://picsum.photos/seed/chaybagh/240/160" alt="چای‌باغ" loading="lazy" />
+                                    <p>روستای چای‌باغ، نگین سبز سوادکوه شمالی</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Nature – Mega Dropdown -->
+                    <li class="nav-item mega-trigger" data-mega="nature">
+                        <a href="#nature" class="nav-link">
+                            طبیعت &amp; کشاورزی
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="mega-panel" id="mega-nature">
+                            <div class="mega-grid">
+                                <div class="mega-col">
+                                    <h4>طبیعت</h4>
+                                    <ul>
+                                        <li><a href="#nature">جنگل‌ها و مراتع</a></li>
+                                        <li><a href="#attractions">جاذبه‌ها</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col">
+                                    <h4>کشاورزی</h4>
+                                    <ul>
+                                        <li><a href="#agriculture">محصولات محلی</a></li>
+                                        <li><a href="#products">برنج و لبنیات</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-card">
+                                    <img src="https://picsum.photos/seed/nature/240/160" alt="طبیعت چای‌باغ" loading="lazy" />
+                                    <p>طبیعت بکر و محصولات ارگانیک</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Gallery -->
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">گالری</a>
+                    </li>
+
+                    <!-- News -->
+                    <li class="nav-item">
+                        <a href="#news" class="nav-link">اخبار</a>
+                    </li>
+
+                    <!-- Contact -->
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">تماس</a>
+                    </li>
+
+                    <!-- Reservation (button style) -->
+                    <li class="nav-item reservation-nav">
+                        <a href="reservation.html" class="btn-reserve-nav">رزرو اقامتگاه</a>
+                    </li>
                 </ul>
             </nav>
+
+            <!-- Mobile Toggle -->
+            <button class="mobile-toggle" id="mobileToggle" aria-label="منو">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
+    <!-- ==================== OVERLAY (for mega menu) ==================== -->
+    <div class="mega-overlay" id="megaOverlay"></div>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
     <main>
-        <section class="hero">
-            <div class="container">
-                <h2>به روستای چای‌باغ خوش آمدید</h2>
-                <p>روستایی با تاریخ کهن، طبیعت بکر و مردمانی مهمان‌نواز</p>
+
+        <!-- ====== SECTION: HOME (Hero) ====== -->
+        <section class="section hero" id="home">
+            <div class="hero-bg" style="background-image: url('https://picsum.photos/seed/hero/1600/900');"></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">🌿 به روستای چای‌باغ خوش آمدید</span>
+                    <h1>نگین سبز <br />سوادکوه شمالی</h1>
+                    <p>
+                        روستای چای‌باغ، با طبیعت بکر جنگل‌های هیرکانی،
+                        پل تاریخی شاپور و محصولات ارگانیک،
+                        مقصدی ایده‌آل برای گردشگری و آرامش.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#intro" class="btn btn-primary">بیشتر بدانید</a>
+                        <a href="reservation.html" class="btn btn-outline">رزرو اقامتگاه</a>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">۸۷۰</span>
+                        <span class="stat-label">جمعیت</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">۱۵</span>
+                        <span class="stat-label">کیلومتر تا قائمشهر</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">۵۲</span>
+                        <span class="stat-label">متر طول پل شاپور</span>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>اسکرول کنید</span>
+                <i class="fas fa-chevron-down"></i>
             </div>
         </section>
 
-        <section class="intro">
+        <!-- ====== SECTION: INTRO ====== -->
+        <section class="section intro" id="intro">
             <div class="container">
-                <h3>معرفی روستا</h3>
-                <p>روستای چای‌باغ یکی از روستاهای تاریخی و زیبای استان ... است که با طبیعتی چشم‌نواز و محصولات کشاورزی مرغوب، مقصدی جذاب برای گردشگران می‌باشد.</p>
-                <p>این روستا با قدمتی چند صد ساله، همواره نقش مهمی در تولید محصولات کشاورزی منطقه داشته است.</p>
+                <div class="section-header">
+                    <span class="section-tag">معرفی</span>
+                    <h2>آشنایی با روستای چای‌باغ</h2>
+                    <p class="section-subtitle">
+                        روستایی جنگلی و سرسبز در دل سوادکوه شمالی
+                    </p>
+                </div>
+                <div class="intro-grid">
+                    <div class="intro-text">
+                        <p>
+                            <strong>روستای چای‌باغ (چای باغ، ملفه)</strong> روستایی جنگلی و سرسبز
+                            از توابع بخش نارنجستان شهرستان سوادکوه شمالی استان مازندران است.
+                            این روستا <strong>مرکز دهستان چای‌باغ</strong> و بخش نارنجستان محسوب می‌شود.
+                        </p>
+                        <p>
+                            با طبیعتی بکر و آب‌وهوای مطبوع، چای‌باغ یکی از مقاصد محبوب
+                            طبیعت‌گردی در شمال ایران است. جنگل‌های هیرکانی، مراتع سرسبز
+                            و جاذبه‌های تاریخی همچون <strong>پل شاپور</strong>، این روستا را
+                            به یک مقصد منحصربه‌فرد تبدیل کرده است.
+                        </p>
+                        <div class="intro-features">
+                            <span><i class="fas fa-check-circle"></i> جنگل‌های هیرکانی</span>
+                            <span><i class="fas fa-check-circle"></i> پل تاریخی شاپور</span>
+                            <span><i class="fas fa-check-circle"></i> محصولات ارگانیک</span>
+                            <span><i class="fas fa-check-circle"></i> دسترسی آسان</span>
+                        </div>
+                    </div>
+                    <div class="intro-image">
+                        <img src="https://picsum.photos/seed/village/600/400" alt="چای‌باغ" loading="lazy" />
+                        <div class="intro-image-badge">
+                            <i class="fas fa-map-pin"></i> سوادکوه شمالی، مازندران
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; ۱۴۰۴ - تمامی حقوق محفوظ است | روستای چای‌باغ</p>
-        </div>
-    </footer>
+        <!-- ====== SECTION: HISTORY ====== -->
+        <section class="section history" id="history">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">تاریخچه</span>
+                    <h2>تاریخچه چای‌باغ</h2>
+                    <p class="section-subtitle">
+                        ریشه‌های کهن در دل جنگل
+                    </p>
+                </div>
+                <div class="history-content">
+                    <div class="history-text">
+                        <p>
+                            روستای چای‌باغ با قدمتی چندین هزار ساله، یکی از مناطق
+                            باستانی و تاریخی سوادکوه محسوب می‌شود. نام «چای‌باغ»
+                            از ترکیب دو واژه «چای» (به معنی رودخانه) و «باغ» شکل گرفته است.
+                        </p>
+                        <p>
+                            این روستا در طول تاریخ به دلیل موقعیت استراتژیک و
+                            منابع طبیعی غنی، همواره مورد توجه بوده است.
+                            <strong>پل شاپور</strong> که در اراضی چای‌باغ واقع شده،
+                            یادگاری از دوران قاجار است و در فهرست آثار ملی ایران
+                            به ثبت رسیده است.
+                        </p>
+                        <blockquote>
+                            <i class="fas fa-quote-right"></i>
+                            «چای‌باغ، روستایی با تاریخ کهن و طبیعتی بکر،
+                            همواره مقصدی برای آرامش و کشف بوده است.»
+                        </blockquote>
+                    </div>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-year">قاجار</span>
+                            <p>احداث پل شاپور بر روی رودخانه</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">۱۳۳۰</span>
+                            <p>تأسیس دهستان چای‌باغ</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">۱۳۹۵</span>
+                            <p>سرشماری با ۸۷۰ نفر جمعیت</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">۱۴۰۰</span>
+                            <p>ثبت پل شاپور در آثار ملی</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <script src="js/script.js"></script>
-</body>
-</html>
+        <!-- ====== SECTION: GEOGRAPHY ====== -->
+        <section class="section geography" id="geography">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">جغرافیا</span>
+                    <h2>موقعیت جغرافیایی</h2>
+                    <p class="section-subtitle">
+                        در میان جنگل‌های هیرکانی سوادکوه
+                    </p>
+                </div>
+                <div class="geography-grid">
+                    <div class="geo-info">
+                        <div class="geo-card">
+                            <i class="fas fa-location-dot"></i>
+                            <h4>موقعیت</h4>
+                            <p>بخش نارنجستان، شهرستان سوادکوه شمالی، استان مازندران</p>
+                        </div>
+                        <div class="geo-card">
+                            <i class="fas fa-route"></i>
+                            <h4>فاصله</h4>
+                            <p>۱۵ کیلومتری قائمشهر، ۵–۸ کیلومتری شیرگاه، ۴۳ کیلومتری ساری</p>
+                        </div>
+                        <div class="geo-card">
+                            <i class="fas fa-mountain"></i>
+                            <h4>منطقه</h4>
+                            <p>جلگه‌ای در میان جنگل‌های هیرکانی با طبیعت بکر</p>
+                        </div>
+                        <div class="geo-card">
+                            <i class="fas fa-temperature-low"></i>
+                            <h4>آب‌وهوا</h4>
+                            <p>سرد با زمستان‌های پربرف؛ بهترین زمان بازدید: بهار و تابستان</p>
+                        </div>
+                    </div>
+                    <div class="geo-map">
+                        <img src="https://picsum.photos/seed/map/600/400" alt="نقشه چای‌باغ" loading="lazy" />
+                        <div class="geo-map-overlay">
+                            <span><i class="fas fa-map-pin"></i> چای‌باغ، سوادکوه شمالی</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== SECTION: CULTURE ====== -->
+        <section class="section culture" id="culture">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">فرهنگ</span>
+                    <h2>فرهنگ و مردم چای‌باغ</h2>
+                    <p class="section-subtitle">
+                        مهمان‌نوازی و آداب و رسوم کهن
+                    </p>
+                </div>
+                <div class="culture-grid">
+                    <div class="culture-item">
+                        <div class="culture-icon"><i class="fas fa-handshake"></i></div>
+                        <h4>مهمان‌نوازی</h4>
+                        <p>مردم چای‌باغ به مهمان‌نوازی و خونگرمی شهرت دارند و با آغوش باز از گردشگران استقبال می‌کنند.</p>
+                    </div>
+                    <div class="culture-item">
+                        <div class="culture-icon"><i class="fas fa-music"></i></div>
+                        <h4>موسیقی محلی</h4>
+                        <p>آهنگ‌های محلی مازندرانی و سازهای سنتی همچون دوتار و کمانچه در مراسم مختلف نواخته می‌شود.</p>
+                    </div>
+                    <div class="culture-item">
+                        <div class="culture-icon"><i class="fas fa-utensils"></i></div>
+                        <h4>غذاهای سنتی</h4>
+                        <p>نان محلی، لبنیات تازه، برنج ارگانیک و خورش‌های محلی از غذاهای معروف چای‌باغ هستند.</p>
+                    </div>
+                    <div class="culture-item">
+                        <div class="culture-icon"><i class="fas fa-leaf"></i></div>
+                        <h4>آداب و رسوم</h4>
+                        <p>مراسم عروسی، جشن‌های برداشت محصول و آیین‌های کهن همچنان در این روستا پابرجاست.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== SECTION: AGRICULTURE ====== -->
+        <section class="section agriculture" id="agriculture">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">کشاورزی</span>
+                    <h2>کشاورزی و محصولات محلی</h2>
+                    <p class="section-subtitle">
+                        برنج ارگانیک، لبنیات تازه و نان محلی
+                    </p>
+                </div>
+                <div class="agriculture-grid">
+                    <div class="agri-card">
+                        <img src="https://picsum.photos/seed/rice/400/300" alt="برنج ارگانیک" loading="lazy" />
+                        <div class="agri-card-body">
+                            <h4>برنج ارگانیک</h4>
+                            <p>برنج با کیفیت و بدون استفاده از مواد شیمیایی، از محصولات اصلی چای‌باغ</p>
+                        </div>
+                    </div>
+                    <div class="agri-card">
+                        <img src="https://picsum.photos/seed/dairy/400/300" alt="لبنیات محلی" loading="lazy" />
+                        <div class="agri-card-body">
+                            <h4>لبنیات محلی</h4>
+                            <p>شیر، ماست، پنیر و کره تازه و طبیعی از گاوهای بومی منطقه</p>
+                        </div>
+                    </div>
+                    <div class="agri-card">
+                        <img src="https://picsum.photos/seed/bread/400/300" alt="نان محلی" loading="lazy" />
+                        <div class="agri-card-body">
+                            <h4>نان محلی</h4>
+                            <p>نان سنتی تهیه شده از آرد محلی با طعمی بی‌نظیر</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== SECTION: NATURE ====== -->
+        <section class="section nature" id="nature">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">طبیعت</span>
+                    <h2>طبیعت بکر چای‌باغ</h2>
+                    <p class="section-subtitle">
+                        جنگل‌های هیرکانی، مراتع سرسبز و جاذبه‌های طبیعی
+                    </p>
+                </div>
+                <div class="nature-grid">
+                    <div class="nature-item">
+                        <div class="nature-image">
+                            <img src="https://picsum.photos/seed/forest/600/350" alt="جنگل هیرکانی" loading="lazy" />
+                        </div>
+                        <div class="nature-info">
+                            <h4>جنگل‌های هیرکانی</h4>
+                            <p>جنگل‌های باستانی و بکر با درختان تنومند و گونه‌های نادر گیاهی</p>
+                        </div>
+                    </div>
+                    <div class="nature-item">
+                        <div class="nature-image">
+                            <img src="https://picsum.photos/seed/meadow/600/350" alt="مراتع سرسبز" loading="lazy" />
+                        </div>
+                        <div class="nature-info">
+                            <h4>مراتع سرسبز</h4>
+                            <p>مناسب برای طبیعت‌گردی، پیک‌نیک و کمپینگ با امکانات اولیه</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attractions (Pol-e Shapour) -->
+                <div class="attraction" id="attractions">
+                    <div class="attracti
